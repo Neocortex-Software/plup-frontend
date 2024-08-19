@@ -24,7 +24,7 @@
         </q-input>
       </q-card-section>
       <q-card-section>
-        <q-btn @click="register" :disable="!isFormValid" :loading="loading" color="primary" label="Register"
+        <q-btn @click="register" :disable="!isFormValid" :loading="loading" color="primary" label="Sign up" no-caps
           class="full-width" />
       </q-card-section>
       <q-card-section class="text-center q-pt-none">
