@@ -105,7 +105,7 @@ export const useAuthStore = defineStore('auth', {
       try {
         await this.getToken(userSignIn);
         await this.getUser();
-        this.router.push({ name: 'admin-properties' });
+        this.router.push({ name: 'dashboard' });
 
         // if (this.user?.role.name === ROLE_USER) {
         //   this.router.push('/');
