@@ -6,7 +6,10 @@ export default boot(({ router }) => {
     const isAuthenticated = Cookies.get('token');
 
     // Si el usuario ya está autenticado y está intentando acceder a login o register, redirige a la página principal
-    if (isAuthenticated && (to.path === '/login' || to.path === '/register')) {
+    if (
+      isAuthenticated &&
+      (to.path === '/auth/login' || to.path === '/auth/register')
+    ) {
       next('/'); // Redirige al home o dashboard, dependiendo de tu aplicación
       return;
     }
@@ -15,7 +18,7 @@ export default boot(({ router }) => {
       // Esta ruta requiere autenticación
       if (!isAuthenticated) {
         // Si el usuario no está autenticado, redirige a la página de inicio de sesión
-        next('/login');
+        next('/auth/login');
       } else {
         next();
       }
