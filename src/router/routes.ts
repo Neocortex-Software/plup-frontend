@@ -3,12 +3,13 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () =>
+      import('src/modules/dashboard/layouts/DashboardLayout.vue'),
     children: [
       {
         path: '',
         name: 'dashboard',
-        component: () => import('pages/IndexPage.vue'),
+        component: () => import('src/modules/dashboard/pages/IndexPage.vue'),
         meta: {
           requiresAuth: true,
           title: 'dashboard',

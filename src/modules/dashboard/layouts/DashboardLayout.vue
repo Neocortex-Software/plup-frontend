@@ -5,7 +5,7 @@
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title>
-          Quasar App
+          App
         </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import MenuItem, { MenuItemsProps } from 'src/components/MenuItem.vue';
+import MenuItem, { MenuItemsProps } from 'src/modules/dashboard/components/MenuItem.vue';
 import { ref } from 'vue';
 
 const menuItems: MenuItemsProps[] = [
@@ -37,6 +37,12 @@ const menuItems: MenuItemsProps[] = [
     title: 'Dashboard',
     caption: '',
     icon: 'home',
+    path: '/'
+  },
+  {
+    title: 'Users',
+    caption: '',
+    icon: 'people',
     path: '/'
   },
 ];
