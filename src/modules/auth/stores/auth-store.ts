@@ -96,7 +96,7 @@ export const useAuthStore = defineStore('auth', {
         await this.signup(userSignUp);
         await this.getToken(userSignUp);
         await this.getUser();
-        this.router.push({ name: '/dashboard' });
+        this.router.push({ name: 'dashboard' });
       } catch (error) {
         console.log('💥 handleSignUp error:', error);
       }
