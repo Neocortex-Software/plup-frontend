@@ -34,6 +34,7 @@ export default {
   editProfile: 'Editar perfil',
   search: 'Buscar',
   uploadImages: 'Subir imágenes',
+  accept: 'Aceptar',
   cancel: 'Cancelar',
   delete: 'Eliminar',
   edit: 'Editar',
@@ -65,4 +66,5 @@ export default {
   emailSentMessage: 'Verifica tu email y abre el enlace para continuar.',
   name: 'Nombre',
   date: 'Fecha',
+  role: 'Rol',
 };

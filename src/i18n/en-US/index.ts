@@ -34,6 +34,7 @@ export default {
   editProfile: 'Edit profile',
   search: 'Search',
   uploadImages: 'Upload images',
+  accept: 'Accept',
   cancel: 'Cancel',
   delete: 'Delete',
   edit: 'Edit',
@@ -54,4 +55,5 @@ export default {
     invalidEmailAddress: 'Invalid email address',
     passwordsMustMatch: 'Passwords must match',
   },
+  role: 'Role',
 };

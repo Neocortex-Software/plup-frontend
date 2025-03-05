@@ -38,10 +38,10 @@ const setupInterceptors = (router: Router) => {
         if (error.response.status === 401) {
           Cookies.remove('token');
           Cookies.remove('establishmentId');
-          router.push('/login');
+          router.push('/auth/login');
         }
         if (error.response.status === 403) {
-          router.push('/login');
+          router.push('/auth/login');
         }
       }
 

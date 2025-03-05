@@ -15,6 +15,15 @@ const routes: RouteRecordRaw[] = [
           title: 'dashboard',
         },
       },
+      {
+        path: 'users',
+        name: 'users',
+        component: () => import('src/modules/users/pages/UsersPage.vue'),
+        meta: {
+          requiresAuth: true,
+          title: 'users',
+        },
+      },
     ],
   },
   {

@@ -43,7 +43,7 @@ const menuItems: MenuItemsProps[] = [
     title: 'Users',
     caption: '',
     icon: 'people',
-    path: '/'
+    path: 'users'
   },
 ];
 
