@@ -1,7 +1,7 @@
 <template>
   <q-table flat bordered ref="tableRef" title="Users" :rows="userStore.users" :columns="columns" row-key="id"
-    v-model:pagination="pagination" :loading="userStore.loading" :filter="filter" binary-state-sort
-    @request="onRequest">
+    v-model:pagination="pagination" :loading="userStore.loading" :filter="filter" binary-state-sort @request="onRequest"
+    :rows-per-page-options="[5, 10, 15, 20, 50]">
     <template v-slot:top-left>
       <q-btn unelevated no-caps color="primary" label="Add user" @click="openCreateUserModal()" />
     </template>
