@@ -1,6 +1,13 @@
 # Quasar App (quasar-starter-project)
 
-A Quasar Project
+Quasar Starter Project es un admin dashboard construido con [Quasar Framework](https://quasar.dev/) y diseñado para integrarse con mi [API de Autenticación NestJS](https://github.com/louiecodes/nest-auth-api), proporcionando un sistema completo de autenticación y gestión de usuarios.
+
+✨ Características
+✅ Autenticación y autorización con JWT
+✅ Registro, login y recuperación de contraseña
+✅ Gestión de usuarios con CRUD completo
+✅ Diseño responsivo y moderno basado en Quasar
+✅ Integración lista con API backend en NestJS
 
 ## Install the dependencies
 ```bash
