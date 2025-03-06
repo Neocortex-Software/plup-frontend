@@ -3,6 +3,7 @@ import { api } from 'src/boot/axios';
 import { User } from 'src/models/user';
 import { CreateUser } from '../models/create-user.model';
 import { notifyError, notifySuccess } from 'src/utils/notify';
+import { UpdateUser } from '../models/update-user.model';
 
 export const useUserStore = defineStore('user', {
   state: () => ({
@@ -44,6 +45,34 @@ export const useUserStore = defineStore('user', {
       } catch (error) {
         console.error('Error creating user:', error);
         notifyError('Error creating user');
+        throw error;
+      } finally {
+        this.loading = false;
+      }
+    },
+    async updateUser(userId: number, user: UpdateUser) {
+      this.loading = true;
+      try {
+        const { data } = await api.patch(`/users/${userId}`, user);
+        notifySuccess('User updated succesfully');
+        return data;
+      } catch (error) {
+        console.error('Error updating user:', error);
+        notifyError('Error updating user');
+        throw error;
+      } finally {
+        this.loading = false;
+      }
+    },
+    async deleteUser(userId: number) {
+      this.loading = true;
+      try {
+        const { data } = await api.delete(`/users/${userId}`);
+        notifySuccess('User deleted succesfully');
+        return data;
+      } catch (error) {
+        console.error('Error deleting user:', error);
+        notifyError('Error deleting user');
         throw error;
       } finally {
         this.loading = false;

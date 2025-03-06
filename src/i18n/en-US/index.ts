@@ -42,7 +42,6 @@ export default {
   settings: 'Settings',
   select: 'Select',
   pageNotFoundMessage: 'Oops, page not found',
-  editUser: 'Edit user',
   changePassword: 'Change password',
   currentPassword: 'Current password',
   newPassword: 'New password',
@@ -56,4 +55,8 @@ export default {
     passwordsMustMatch: 'Passwords must match',
   },
   role: 'Role',
+  createUser: 'Create User',
+  editUser: 'Edit User',
+  deleteUser: 'Delete User',
+  deleteUserMessage: 'Are you sure you want to delete this user?',
 };

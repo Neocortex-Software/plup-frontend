@@ -41,7 +41,6 @@ export default {
   done: 'Listo',
   settings: 'Configuración',
   pageNotFoundMessage: 'Ups, página no encontrada',
-  editUser: 'Editar usuario',
   changePassword: 'Cambiar contraseña',
   currentPassword: 'Contraseña actual',
   newPassword: 'Nueva contraseña',
@@ -67,4 +66,8 @@ export default {
   name: 'Nombre',
   date: 'Fecha',
   role: 'Rol',
+  createUser: 'Crear Usuario',
+  editUser: 'Editar Usuario',
+  deleteUser: 'Eliminar Usuario',
+  deleteUserMessage: '¿Desea eliminar el usuario?',
 };
