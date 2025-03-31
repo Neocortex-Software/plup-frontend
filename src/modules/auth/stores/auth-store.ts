@@ -6,6 +6,8 @@ import { UserSignIn } from 'src/modules/auth/models/user-signin.model';
 import { UserSignUp } from 'src/modules/auth/models/user-signup.model';
 import { notifyError, notifySuccess } from 'src/utils/notify';
 import { UserUpdate } from '../models/user-update.model';
+import { signInWithPopup, signOut } from 'firebase/auth';
+import { auth, googleProvider } from 'src/boot/firebase';
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
@@ -122,6 +124,7 @@ export const useAuthStore = defineStore('auth', {
       try {
         this.loading = true;
         await api.post('/auth/logout');
+        await signOut(auth);
       } catch (error) {
         console.log(error);
         return error;
@@ -135,7 +138,7 @@ export const useAuthStore = defineStore('auth', {
       this.user = null;
       Cookies.remove('token');
       Cookies.remove('establishmentId');
-      this.router.push('/login');
+      this.router.push({ name: 'login' });
     },
     async changePassword(currentPassword: string, newPassword: string) {
       try {
@@ -180,6 +183,44 @@ export const useAuthStore = defineStore('auth', {
         );
       } finally {
         this.loading = false;
+      }
+    },
+    async loginWithGoogle() {
+      try {
+        const result = await signInWithPopup(auth, googleProvider);
+        const firebaseUser = result.user;
+
+        // Obtener el token de Firebase
+        const idToken = await result.user.getIdToken();
+
+        // Enviar el token a tu API para autenticar al usuario en tu backend
+        // const response = await apiAuth.post('/auth/google-signin', { idToken });
+
+        // Guardar el token JWT recibido en la store y en las cookies
+        // this.token = 'Bearer ' + response.data.access_token;
+        // Cookies.set('token', this.token);
+        Cookies.set('token', idToken);
+
+        // Obtener el usuario desde tu backend
+        // await this.getUser();
+
+        // Asignar el usuario al formato esperado
+        this.user = {
+          id: 0,
+          firstName: firebaseUser.displayName?.split(' ')[0] || '',
+          lastName: firebaseUser.displayName?.split(' ')[1] || '',
+          email: firebaseUser.email || '',
+          role: { name: 'USER' },
+          accessToken: '',
+          refreshToken: '',
+          createdAt: new Date().toISOString(),
+        };
+
+        // Redirigir al usuario al dashboard
+        this.router.push({ name: 'dashboard' });
+      } catch (error) {
+        console.error('Error en Google Sign-In:', error);
+        notifyError('Error al iniciar sesión con Google.');
       }
     },
   },

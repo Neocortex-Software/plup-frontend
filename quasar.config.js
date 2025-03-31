@@ -28,7 +28,7 @@ module.exports = configure(function (/* ctx */) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: ['i18n', 'axios', 'authGuard'],
+    boot: ['i18n', 'axios', 'authGuard', 'firebase'],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: ['app.scss'],
@@ -36,7 +36,7 @@ module.exports = configure(function (/* ctx */) {
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
       // 'ionicons-v4',
-      // 'mdi-v7',
+      'mdi-v7',
       // 'fontawesome-v6',
       // 'eva-icons',
       // 'themify',
