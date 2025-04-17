@@ -16,13 +16,37 @@ const routes: RouteRecordRaw[] = [
         },
       },
       {
-        path: 'users',
-        name: 'users',
-        component: () => import('src/modules/users/pages/UsersPage.vue'),
+        path: 'giftcards',
+        redirect: { name: 'received-giftcards' },
+        name: 'giftcards',
+        component: () =>
+          import('src/modules/giftcards/pages/GiftCardsPage.vue'),
         meta: {
           requiresAuth: true,
-          title: 'users',
+          title: 'giftcards',
         },
+        children: [
+          {
+            path: '',
+            name: 'received-giftcards',
+            component: () =>
+              import('src/modules/giftcards/pages/ReceivedGiftcardsPage.vue'),
+            meta: {
+              requiresAuth: true,
+              title: 'receivedGiftcards',
+            },
+          },
+          {
+            path: 'sent-giftcards',
+            name: 'sent-giftcards',
+            component: () =>
+              import('src/modules/giftcards/pages/SentGiftcardsPage.vue'),
+            meta: {
+              requiresAuth: true,
+              title: 'sentGiftcards',
+            },
+          },
+        ],
       },
     ],
   },

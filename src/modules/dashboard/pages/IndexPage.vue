@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <q-btn @click="authStore.handleLogout()" label="Cerrar sesión" color="red" class="full-width" />
+    <q-btn @click="authStore.handleLogout()" label="Cerrar sesión" color="red" />
   </q-page>
 </template>
 

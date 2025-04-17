@@ -1,55 +1,59 @@
 <template>
-  <q-layout view="lHh lpR lFf">
-    <q-header>
+  <q-layout view="hHh lpR fFf">
+
+    <q-header reveal class="bg-primary text-white">
       <q-toolbar>
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
-
         <q-toolbar-title>
-          App
+          Plup
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
-
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
-        <q-item-label header>
-          Essential Links
-        </q-item-label>
-
-        <MenuItem v-for="item in menuItems" :key="item.title" v-bind="item" />
-      </q-list>
-    </q-drawer>
 
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <q-footer reveal class="bg-primary text-white">
+      <q-tabs no-caps>
+        <q-route-tab v-for="tab in tabs" v-bind:key="tab.name" :to="{ name: tab.pathName }" :name="tab.name"
+          :icon="tab.icon" :label="tab.label" />
+      </q-tabs>
+    </q-footer>
   </q-layout>
 </template>
-
 <script setup lang="ts">
-import MenuItem, { MenuItemsProps } from 'src/modules/dashboard/components/MenuItem.vue';
-import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-const menuItems: MenuItemsProps[] = [
+const { t } = useI18n();
+
+const tabs = [
   {
-    title: 'Dashboard',
-    caption: '',
     icon: 'home',
-    path: '/'
+    name: 'home',
+    label: t('home'),
+    pathName: 'main',
+    exact: true,
   },
   {
-    title: 'Users',
-    caption: '',
-    icon: 'people',
-    path: 'users'
+    icon: 'redeem',
+    name: 'giftcards',
+    label: t('giftcards'),
+    pathName: 'giftcards',
+    exact: true,
+  },
+  {
+    icon: 'local_activity',
+    name: 'vouchers',
+    label: t('vouchers'),
+    pathName: 'vouchers',
+    exact: true,
+  },
+  {
+    icon: 'stars',
+    name: 'points',
+    label: t('points'),
+    pathName: 'points',
+    exact: true,
   },
 ];
-
-const leftDrawerOpen = ref(false)
-
-function toggleLeftDrawer() {
-  leftDrawerOpen.value = !leftDrawerOpen.value
-}
 </script>
