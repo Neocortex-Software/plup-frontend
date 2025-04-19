@@ -8,15 +8,31 @@ import { notifyError, notifySuccess } from 'src/utils/notify';
 import { UserUpdate } from '../models/user-update.model';
 import { signInWithPopup, signOut } from 'firebase/auth';
 import { auth, googleProvider } from 'src/boot/firebase';
+import { Establishment } from 'src/modules/establishments/models/establishment.model';
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
     loading: false,
     token: <string | null>'',
     user: <User | null>{},
+    selectedEstablishment: <Establishment | null>{},
   }),
 
-  getters: {},
+  getters: {
+    isAuthenticated: (state) => !!state.token && !!state.user,
+    currentUser: (state): User => {
+      if (!state.user) {
+        throw new Error('No user is currently logged in');
+      }
+      return state.user;
+    },
+    currentEstablishment: (state): Establishment => {
+      if (!state.selectedEstablishment) {
+        throw new Error('No establishment is selected');
+      }
+      return state.selectedEstablishment;
+    },
+  },
 
   actions: {
     async getToken(userSignIn: UserSignIn) {

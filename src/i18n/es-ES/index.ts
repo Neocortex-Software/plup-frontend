@@ -86,4 +86,12 @@ export default {
   redeemGiftcard: 'Canjear gift card',
   seeDetails: 'Ver detalles',
   redeem: 'Canjear',
+  message: 'Mensaje',
+  messageSubtitle: 'Escribe un mensaje para el destinatario de la gift card.',
+  sendGiftCard: 'Enviar gift card',
+  value: 'Monto',
+  valueSubtitle: 'Ingresa el monto de la gift card',
+  currency: 'Moneda',
+  currencySubtitle: 'Selecciona el tipo de moneda',
+  emailSubtitle: 'Ingresa el correo electrónico del destinatario',
 };

@@ -1,3 +1,5 @@
+import { send } from 'process';
+
 export default {
   featured: 'Featured',
   visible: 'Visible',
@@ -74,5 +76,13 @@ export default {
   sentGiftcardsSubtitle: 'Manage your sent gift cards',
   redeemGiftcard: 'Redeem gift card',
   seeDetails: 'See details',
-  redeem: 'Canjear',
+  redeem: 'Redeem',
+  message: 'Message',
+  messageSubtitle: 'Write a message to the Gift Card recipient',
+  sendGiftCard: 'Send Gift Card',
+  value: 'Amount',
+  valueSubtitle: 'Enter the amount of the gift card',
+  currency: 'Currency',
+  currencySubtitle: 'Select the currency',
+  emailSubtitle: 'Enter the email address of the recipient',
 };
